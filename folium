@@ -1,0 +1,15 @@
+import folium
+
+lat1 = 36.5040736
+long1 = 127.2494855
+lat2 = 36.4040736
+long2 = 127.2494855
+
+m = folium.Map(location=[lat1,long1], zoom_start=11, tiles='cartodbpositron')
+folium.Marker([lat1, long1],popup=[lat1,long1],tooltip="you are here").add_to(m)
+folium.Marker([lat2, long2],popup=[lat2,long2],tooltip="destination",icon=folium.Icon('red',icon='star')).add_to(m)
+
+lines = [[lat1,long1],[lat2,long2]]
+folium.PolyLine(locations=lines).add_to(m)
+
+m
